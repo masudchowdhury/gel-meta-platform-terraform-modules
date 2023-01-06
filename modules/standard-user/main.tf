@@ -7,7 +7,7 @@ resource "aws_iam_user" "this" {
 
 
 resource "aws_iam_user_group_membership" "this" {
-  count  = length(local.group_membership) > 0 ? 1 : 0
+  count  = length(var.group_membership) > 0 ? 1 : 0
   user   = aws_iam_user.this.name
-  groups = local.group_membership
+  groups = var.group_membership
 }
